@@ -88,6 +88,24 @@ button:hover {
   }
 }
 
+.footer {
+  margin-top: 2em;
+  text-align: center;
+  font-size: 0.8em;
+  color: #555;
+}
+
+.small-link {
+  text-decoration: none;
+  color: #555;
+  font-size: 12pt;
+  transition: color 0.2s ease-in-out;
+}
+
+.small-link:hover {
+  color: #0077ff;
+}
+
 .output-container-wrapper {
   display: flex;
   align-items: flex-start;

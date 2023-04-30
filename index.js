@@ -10,7 +10,9 @@ const openai = new OpenAIApi(configuration);
 
 const app = express();
 app.use(express.json());
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
+const port = process.env.PORT;
+
 // const port = 3000;
 
 app.listen(port, () => {

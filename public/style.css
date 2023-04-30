@@ -82,6 +82,12 @@ button:hover {
   padding: 2rem;
 }
 
+@media only screen and (max-width: 767px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
 .output-container-wrapper {
   display: flex;
   align-items: flex-start;

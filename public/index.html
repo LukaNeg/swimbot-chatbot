@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Speak with a swimbot!</title>
+    <title>Swimbot Speak</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -12,14 +12,15 @@
   </head>
   <body>
     <div class="container">
-      <h1>Swimbot Speak<span class="small-link">  <a href="version_history.html" class="small-link" target="_blank">(v0.1)</a></span></h1>
+      <h1>Swimbot Speak<span class="small-link">  <a href="version_history.html" class="small-link" target="_blank">(v0.2)</a></span></h1>
        <p>Here you can have a conversation with a swimbot.
         Ask them whatever you'd like and follow up on your questions. They have some memory, so they will be able to
       keep track of the conversation (up to a certain extent!). Also, be sure to wait a few seconds after clicking submit.
     Swimbots need a bit of time to think! <br><br>
   Be creative! For example, you can ask questions as if you are a swimbot interacting with them as well. Try to build a friendship.
 See what secrets or special places they will show or tell you about. Can you make a new friend? You might be surprised about what
-they have to share with you.</p>
+they have to share with you. <br> <br>
+You can also play around with what the swimbot is thinking about most right now. See the sliders below and some instructions on how to use them.</p>
 
       <label for="promptInput">Ask a question:</label>
       <div class="input-wrapper">
@@ -35,6 +36,69 @@ they have to share with you.</p>
 
       <br>
       <br>
+      <div class="parameters-wrapper">
+
+        <div class="title-container">
+          <img src="swimbot_brain.png" alt="Swimbot brain" class="swimbot-brain-icon" />
+          <h2 class="swimbot">Swimbot Brain</h2>
+        </div>
+
+        <p><b>Instructions:</b> Tweak the sliders before you start the conversation. Changing them midway into the conversation might not have the desired effect. The current swimbot brain does not have the neuroplasticity it needs to easily change its mindset (yet!).</p>
+          <div class="personality-sliders">
+            <h3>Personality:</h3>
+            <div class="slider-wrapper">
+              <label for="kindnessSlider">Kindness: <span class="slider-value" id="kindnessValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="kindnessSlider">
+            </div>
+            <div class="slider-wrapper">
+              <label for="curiositySlider">Curiosity: <span class="slider-value" id="curiosityValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="curiositySlider">
+            </div>
+            <div class="slider-wrapper">
+              <label for="optimismSlider">Optimism: <span class="slider-value" id="optimismValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="optimismSlider">
+            </div>
+            <div class="slider-wrapper">
+              <label for="socialitySlider">Sociality: <span class="slider-value" id="socialityValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="socialitySlider">
+            </div>
+            <div class="slider-wrapper">
+              <label for="competitivenessSlider">Competitiveness: <span class="slider-value" id="competitivenessValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="competitivenessSlider">
+            </div>
+          </div>
+
+            <!-- New sliders -->
+          <div class="personality-sliders">
+            <h3>Mental State:</h3>
+            <div class="slider-wrapper">
+              <label for="hungerSlider">Hunger: <span class="slider-value" id="hungerValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="hungerSlider">
+            </div>
+
+            <div class="slider-wrapper">
+              <label for="heatSlider">Desire to mate: <span class="slider-value" id="heatValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="heatSlider">
+            </div>
+
+            <div class="slider-wrapper">
+              <label for="offspringSlider">Number of Offspring: <span class="slider-value" id="offspringValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="offspringSlider">
+            </div>
+
+            <div class="slider-wrapper">
+              <label for="mobilitySlider">Mobility: <span class="slider-value" id="mobilityValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="mobilitySlider">
+            </div>
+
+            <div class="slider-wrapper">
+              <label for="distanceSlider">Distance from Food: <span class="slider-value" id="distanceValue">medium</span></label>
+              <input type="range" min="0" max="2" value="1" class="slider" id="distanceSlider">
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
 
       <div class="footer">
         <p>
@@ -51,8 +115,6 @@ they have to share with you.</p>
       </div>
 
     </div>
-
     <script src="generate.js"></script>
-
   </body>
 </html>

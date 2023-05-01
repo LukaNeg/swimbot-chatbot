@@ -75,11 +75,16 @@ button:hover {
   margin-top: 1rem;
 }
 
-/* overall site width */
+/* overall content width */
+
 .container {
   max-width: 800px;
   margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  background-color: #a3e3ff;
+  color: #333;
   padding: 2rem;
+  line-height: 1.6;
 }
 
 @media only screen and (max-width: 767px) {
@@ -128,3 +133,173 @@ button:hover {
   margin-right: 1rem;
   height: 40px;
 }
+
+
+.slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 6px;
+  background: #ddd;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: #2196F3;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  background: #2196F3;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+
+.slider-wrapper label {
+  font-size: 1rem;
+  margin-bottom: 0px;
+}
+
+.slider-value {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 0px;
+}
+
+.parameters-wrapper {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.parameters-wrapper h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0px;
+}
+
+.parameters-wrapper h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0px;
+}
+
+.parameters-wrapper p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+/* .new-sliders {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  margin-left: 20px;
+} */
+
+/* .new-sliders .slider-wrapper {
+  margin-bottom: 0px;
+} */
+
+/* .new-sliders label {
+  font-size: 1rem;
+  font-weight: bold;
+} */
+
+/* .new-sliders input[type="range"] {
+  width: 50%;
+  margin-top: 5px;
+} */
+
+/* .new-sliders .slider-value {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  font-weight: bold;
+} */
+
+/* .sliders-container {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.personality-sliders {
+  display: inline-block;
+  width: calc(50% - 20px);
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-top: 0px; /* add some margin to the top if needed */
+}
+
+.swimbot-brain-title {
+  margin: 0; /* remove any default margin */
+  font-size: 20px; /* set the font size as needed */
+  line-height: 1; /* set the line height to 1 to vertically center the title */
+}
+
+.swimbot-brain-icon {
+  height: 60px;
+  width: auto;
+  margin-right: 0;
+  margin-left: 0px;
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+
+/* Version history lines: */
+.version-history-item {
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.version-history-item h2 {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.version-history-item h3 {
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.version-history-item p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+
+
+
+

@@ -1,7 +1,6 @@
 const button = document.getElementById('submitPrompt');
 const persButton = document.getElementById('initPersonality');
 
-
 // to indicate thinking
 const thinkingText = document.getElementById('thinkingText');
 const loadingIndicator = document.createElement('span');
@@ -11,7 +10,6 @@ loadingIndicator.style.display = "none";
 const loadingIndicatorContainer = document.createElement('div');
 loadingIndicatorContainer.appendChild(loadingIndicator);
 outputContainer.parentNode.insertBefore(loadingIndicatorContainer, outputContainer);
-
 
 const Sliders = document.querySelectorAll('.slider');
 const slideValues = document.querySelectorAll('.slider-value');
@@ -57,7 +55,7 @@ button.addEventListener('click', async event => {
   const fullPrompt = createGptPrompt(fullConvo, prompt, personalityPrompt, environmentPrompt);
   fullPrompt_json = {fullPrompt};
 
-  // console.log(fullPrompt);
+  console.log(fullPrompt);
   // console.log(allSliderScores.slice(5, 10));
 
   // set up the fetch for sending my data to the api
@@ -137,31 +135,6 @@ function describePersonality(personalityScores) {
 
   return prompt;
 }
-
-// // function to describe the swimbots current physical state or environment
-// function describeEnvironment(environmentScores) {
-//   const state = {
-//     0: "not at all",
-//     1: "sort of",
-//     2: "very"
-//   };
-
-//   // improve this so that only the extreme conditions show up in the description. to reduce what
-//   // the swimbot has to think about
-
-//   const [hunger_score, heat_score, offspring_score, mobility_score, fooddist_score] = environmentScores;
-
-//   const hunger = state[hunger_score];
-//   const heat = state[heat_score];
-//   const offspring = state[offspring_score];
-//   const mobility = state[mobility_score];
-//   const fooddist = state[fooddist_score];
-
-//   const prompt = `This swimbot is currently ${hunger} hungry, ${heat} horny or looking for mates, has ${offspring} many offspring, can swim ${mobility} quickly and easily, and is ${fooddist} far from food. These conditions affect what the swimbot is thinking most about right now.`;
-
-//   return prompt;
-// }
-
 
 function describeEnvironment(environmentScores) {
   const [hunger_score, mating_score, offspring_score, mobility_score, fooddist_score] = environmentScores;

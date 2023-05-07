@@ -55,7 +55,7 @@ button.addEventListener('click', async event => {
   const fullPrompt = createGptPrompt(fullConvo, prompt, personalityPrompt, environmentPrompt);
   fullPrompt_json = {fullPrompt};
 
-  // console.log(fullPrompt);
+  console.log(fullPrompt);
   // console.log(allSliderScores.slice(5, 10));
 
   // set up the fetch for sending prompt data to the api

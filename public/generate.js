@@ -55,10 +55,10 @@ button.addEventListener('click', async event => {
   const fullPrompt = createGptPrompt(fullConvo, prompt, personalityPrompt, environmentPrompt);
   fullPrompt_json = {fullPrompt};
 
-  console.log(fullPrompt);
+  // console.log(fullPrompt);
   // console.log(allSliderScores.slice(5, 10));
 
-  // set up the fetch for sending my data to the api
+  // set up the fetch for sending prompt data to the api
   const options = {
     method: 'POST',
     headers: {
@@ -71,18 +71,28 @@ button.addEventListener('click', async event => {
   // Display the loading indicator
   loadingIndicator.style.display = "inline";
 
-  const response = await fetch('/ask', options);
+  const response = await fetch('/sendPrompt', options);
   const output = await response.json();
   // console.log(json);
 
   // Hide the loading indicator
   loadingIndicator.style.display = "none";
 
-  const outputContainer = document.getElementById('outputContainer');
-  outputContainer.textContent = `${output.message}`;
-
   const latestPrompt = prompt;
   const gptResponse = output.message.replace(/^\n\n/, ""); //remove two line breaks from responses
+  const gptResponseJSON = JSON.parse(gptResponse);
+  const convoReply = gptResponseJSON.response;
+  const curAction = gptResponseJSON.curAction;
+
+  console.log(`full JSON response: ${gptResponse}`);
+
+  // const convoReply = gptResponse['response']
+
+  const outputContainer = document.getElementById('outputContainer');
+  outputContainer.textContent = `${convoReply}`;
+
+  const actionContainer = document.getElementById('actionContainer');
+  actionContainer.textContent = `${curAction}`;
 
   // Add the latest prompt to the chat history
   chatHistory.push({
@@ -92,7 +102,7 @@ button.addEventListener('click', async event => {
   // Add the latest response to the chat history
   chatHistory.push({
     role: "gpt",
-    content: gptResponse
+    content: convoReply
   });
   fullConvo = buildChatPrompt(chatHistory);
   // console.log(fullConvo);
@@ -170,9 +180,6 @@ function describeEnvironment(environmentScores) {
 }
 
 
-
-
-
 function createGptPrompt(fullConvo, newQuestion, personality="", environment="") {
   // Add an instruction for GPT to respond to the latest question
   const description = "I want you to act as someone with the following description of\
@@ -185,7 +192,15 @@ function createGptPrompt(fullConvo, newQuestion, personality="", environment="")
   as well as reproducing to create more offspring."
   // Your personality is one of wonder and curiosity, with kindness and sociality."
 
-  const instruction = "The following is a conversation. Please reply to the latest question:";
+  const instruction =
+  `
+  Below is a conversation, which includes a description, personality of the swimbot, and the environmental and physical states.
+  Please return the following response formatted in json using this format:
+  {
+    "response": <response to the latest part of the conversation>,
+    "curAction": <based on the current state of the conversation and other descriptive parameters, what is the current action the swimbot is trying to do? Choose one from the following list: ['searching for food', 'going towards foodbit', 'searching for mate', 'going towards mate', 'exploring', 'waiting']>
+  }
+  `;
 
   const gptPrompt = `${description}\n\nPersonality: ${personality}\n\nEnvironment and Physical state: ${environment}\n\n${instruction}\n\n${fullConvo}\nUser: ${newQuestion}\nGPT: `;
   return gptPrompt;

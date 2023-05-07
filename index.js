@@ -21,8 +21,8 @@ app.listen(port, () => {
 
 app.use(express.static('public'));
 
-// POST request endpoint
-app.post("/ask", async (request, result) => {
+// POST request endpoint for sending the message prompt
+app.post("/sendPrompt", async (request, result) => {
   // getting prompt question from request
   const prompt = request.body.fullPrompt;
   //const prompt = "what is fire?";
